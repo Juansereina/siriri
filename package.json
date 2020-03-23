@@ -1,0 +1,19 @@
+{
+  "name": "siriri-19",
+  "version": "1.0.0",
+  "description": "Front",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juansereina/siriri-19.git"
+  },
+  "author": "Juansereina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juansereina/siriri-19/issues"
+  },
+  "homepage": "https://github.com/Juansereina/siriri-19#readme"
+}
