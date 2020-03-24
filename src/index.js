@@ -8,10 +8,10 @@ const shareData = {
   url: 'https://developer.mozilla.org',
 }
 
-const btn = document.querySelector('button');
+const shareApiButton = document.getElementsByClassName("shareBtn")
 const resultPara = document.querySelector('.result');
 
-btn.addEventListener('click', async () => {
+shareApiButton.addEventListener('click', async () => {
   try {
     await navigator.share(shareData)
     resultPara.textContent = 'MDN shared successfully'
