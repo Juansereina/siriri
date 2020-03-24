@@ -1,8 +1,6 @@
 /* import app from './src/index';
 */
 describe('Root app', () => {
-  it('first test', () => {/* 
-    app(); */
-  });
+  it.todo('first test')
 });
  
