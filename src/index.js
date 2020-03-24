@@ -2,8 +2,6 @@ const initApp = () => {
   console.log('hellow world');
 }
 
-initApp();
-
 const shareData = {
   title: 'MDN',
   text: 'Learn web development on MDN!',
