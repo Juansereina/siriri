@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run js-build-dev\" \"gulp serve\" ",
-    "test": "jest",
+    "test": "jest --testPathPattern=spec.js",
     "build": "echo 'Building' && npm run js-build-prod && cross-env NODE_ENV=\"production\" gulp build",
     "js-build-dev": "rollup -c rollup.config.dev.js --watch",
     "js-build-prod": "rollup -c rollup.config.prod.js"
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/Juansereina/siriri-19#readme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.9.0",
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@rollup/plugin-commonjs": "^11.0.2",
