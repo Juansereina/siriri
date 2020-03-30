@@ -1,5 +1,7 @@
-const initApp = () => {
-  console.log('hellow world');
+
+const initApp = async () => {
+   const test = await import('./components/test.js');
+   console.log(test.default);
 };
 
 const shareData = {
@@ -19,3 +21,5 @@ shareApiButton.addEventListener('click', async () => {
     resultPara.textContent = `Error:${err}`;
   }
 });
+
+initApp();
