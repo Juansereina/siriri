@@ -13,7 +13,6 @@ module.exports = {
       dir: 'bundlers/bundle-min',
       format: 'esm',
       name: 'version',
-      sourcemap: true,
       plugins: [terser()]
     }
   ],
