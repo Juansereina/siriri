@@ -19,7 +19,7 @@ const targetPath = process.env.NODE_ENV === 'production' ? 'build' : 'public';
 
 // Clean files
 function cleanFiles() {
-  return src(`${targetPath}/`, { read: false, allowEmpty: true }).pipe(clean());
+  return src(`${targetPath}/*`, { read: false, allowEmpty: true }).pipe(clean());
 }
 
 // Copy All HTML files
@@ -37,14 +37,14 @@ function copyHtmlDev() {
 }
 
 // Minify JS
-function minifyJs() {
-  return src(['src/js/**/*.js'])
+function copyJs() {
+  return src(['bundlers/bundle-min/*.js','bundlers/bundle-min/*.js.map'])
     .pipe(dest('build/js'));
 }
 
 // Minify JS Dev Env
-function minifyJsDev() {
-  return src('src/js/**/*.js')
+function copyJsDev() {
+  return src(['bundlers/bundle/*.js','bundlers/bundle/*.js.map'])
     .pipe(dest('public/js'))
     .pipe(browserSync.stream());
 }
@@ -74,7 +74,7 @@ function serve() {
   });
   watch('src/*.html', copyHtmlDev);
   watch('src/sass/**/*.scss', sassCompileDev);
-  watch('src/js/**/*.js', minifyJsDev);
+  watch('bundlers/bundle/**/*.js', copyJsDev);
 }
 
 // Inject files to target - Styles injected
@@ -96,12 +96,12 @@ function indexInjection() {
 
 exports.build = series(
   cleanFiles,
-  parallel(copyHtml, sassCompile, minifyJs),
+  parallel(copyHtml, sassCompile, copyJs),
   indexInjection
 );
 exports.serve = series(
   cleanFiles,
-  parallel(copyHtmlDev, sassCompileDev, minifyJsDev),
+  parallel(copyHtmlDev, sassCompileDev, copyJsDev),
   indexInjection,
   serve
 );
