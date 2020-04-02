@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run js-build-dev\" \"gulp serve\" ",
-    "test": "jest --testPathPattern=spec.js",
+    "test": "npm run lint && jest --testPathPattern=spec.js",
     "build": "echo 'Building' && npm run js-build-prod && cross-env NODE_ENV=\"production\" gulp build",
     "js-build-dev": "rollup -c rollup.config.dev.js --watch",
-    "js-build-prod": "rollup -c rollup.config.prod.js"
+    "js-build-prod": "rollup -c rollup.config.prod.js",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -25,14 +26,17 @@
     "@babel/plugin-transform-modules-commonjs": "^7.9.0",
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
+    "@babel/runtime": "^7.9.2",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
     "browser-sync": "^2.26.7",
     "concurrently": "^5.1.0",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.8.2",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
@@ -47,8 +51,5 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-delete": "^1.2.0",
     "rollup-plugin-terser": "^5.3.0"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.9.2"
   }
 }

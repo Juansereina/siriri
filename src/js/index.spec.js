@@ -1,5 +1,5 @@
 /* import app from './src/index';
  */
-describe('Root app', () => {
+describe('root app', () => {
   it.todo('first test');
 });

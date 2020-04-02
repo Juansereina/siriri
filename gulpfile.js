@@ -1,3 +1,4 @@
+/*eslint-env node*/
 const { series, parallel, src, dest, watch } = require('gulp');
 const browserSync = require('browser-sync').create();
 const htmlmin = require('gulp-htmlmin');
