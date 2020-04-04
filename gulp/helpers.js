@@ -17,9 +17,9 @@ function serve() {
       baseDir: folders.output
     }
   });
-  watch(`./${folders.source}/*.html`, task.html);
-  watch(`./${folders.source}${sassCong.source}`, task.sass);
-  watch(`./${folders.output}/*.html`).on('change', browserSyncReload)
+  watch(`${folders.source}/*.html`, task.html);
+  watch(`${folders.source}${sassCong.source}`, task.sass);
+  watch(`${folders.output}/*.html`).on('change', browserSyncReload)
 }
 
 // Inject files to target - Styles injected
@@ -32,7 +32,7 @@ function cssInjection() {
   return target
     .pipe(
       inject(sources, {
-        ignorePath: `${folders.output}/`,
+        ignorePath: `${folders.output}`,
         addRootSlash: false
       })
     )
