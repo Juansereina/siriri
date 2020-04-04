@@ -2,6 +2,7 @@
 const browserSync = require('browser-sync').create();
 const { watch, src, dest } = require('gulp');
 const { folders, sass: sassCong } = require('../config');
+const { isProductionMode } = require('../helpers');
 const task = require('./tasks');
 const inject = require('gulp-inject');
 
@@ -11,7 +12,9 @@ function browserSyncReload(done) {
 }
 
 // Live reloading
-function serve() {
+function serve(done) {
+  if (isProductionMode) return done();
+
   browserSync.init({
     server: {
       baseDir: folders.output

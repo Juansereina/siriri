@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp serve",
     "test": "npm run lint && jest --testPathPattern=spec.js",
-    "build": "echo 'Building' && npm run js-build-prod && cross-env NODE_ENV=\"production\" gulp build",
+    "build": "echo 'Building' && cross-env NODE_ENV=\"production\" gulp serve",
     "js-build-dev": "rollup -c rollup.config.dev.js --watch",
     "js-build-prod": "rollup -c rollup.config.prod.js",
     "lint": "eslint src"
