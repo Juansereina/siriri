@@ -4,11 +4,10 @@
   "description": "Front",
   "main": "index.js",
   "scripts": {
-    "start": "gulp serve",
+    "start": "concurrently \"npm run js\" \"gulp serve\"",
     "test": "npm run lint && jest --testPathPattern=spec.js",
-    "build": "echo 'Building' && cross-env NODE_ENV=\"production\" gulp serve",
-    "js-build-dev": "rollup -c rollup.config.dev.js --watch",
-    "js-build-prod": "rollup -c rollup.config.prod.js",
+    "build": "echo 'Building' && npm run js && cross-env NODE_ENV=\"production\" gulp serve",
+    "js": "rollup -c rollup.config.js",
     "lint": "eslint src"
   },
   "repository": {
