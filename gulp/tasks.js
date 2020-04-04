@@ -4,7 +4,7 @@ const gsass = require('gulp-sass');
 const gclean = require('gulp-clean');
 const ghtml = require('gulp-htmlmin');
 const gif = require('gulp-if');
-const { folders, sass: sassCong } = require('../config');
+const { folders, sass: sassCong, js } = require('../config');
 const { isProductionMode } = require('../helpers');
 const { browserSync } = require('./services');
 
@@ -32,8 +32,15 @@ function sass() {
     .pipe(browserSync.stream());
 }
 
+function sw() {
+  return src(`${folders.source}${js.source}${js.sw}`)
+  .pipe(dest(folders.output))
+  .pipe(browserSync.stream());
+}
+
 module.exports = {
   clean,
   html,
-  sass
+  sass,
+  sw
 }

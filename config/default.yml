@@ -4,3 +4,7 @@ folders:
 sass:
   source: /sass/**/*.scss
   output: /css
+js:
+  main: index.js
+  source: /js/
+  sw: sw.js

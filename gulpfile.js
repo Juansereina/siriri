@@ -5,7 +5,7 @@ const { cssInjection, serve } = require('./gulp/services');
 
 exports.serve = series(
   task.clean,
-  parallel(task.html, task.sass),
+  parallel(task.html, task.sass, task.sw),
   cssInjection,
   serve
 );
