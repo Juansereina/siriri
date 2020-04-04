@@ -4,10 +4,11 @@
   "description": "Front",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run js\" \"gulp serve\"",
+    "start": "concurrently \"npm run js-w\" \"gulp serve\"",
     "test": "npm run lint && jest --testPathPattern=spec.js",
     "build": "echo 'Building' && npm run js && cross-env NODE_ENV=\"production\" gulp serve",
     "js": "rollup -c rollup.config.js",
+    "js-w": "rollup -c rollup.config.js -w",
     "lint": "eslint src"
   },
   "repository": {
