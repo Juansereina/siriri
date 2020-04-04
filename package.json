@@ -4,7 +4,7 @@
   "description": "Front",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run js-build-dev\" \"gulp serve\" ",
+    "start": "gulp serve",
     "test": "npm run lint && jest --testPathPattern=spec.js",
     "build": "echo 'Building' && npm run js-build-prod && cross-env NODE_ENV=\"production\" gulp build",
     "js-build-dev": "rollup -c rollup.config.dev.js --watch",
@@ -43,6 +43,7 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-cli": "^2.2.0",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
     "gulp-inject": "^5.0.5",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
@@ -51,5 +52,8 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-delete": "^1.2.0",
     "rollup-plugin-terser": "^5.3.0"
+  },
+  "dependencies": {
+    "js-yaml": "^3.13.1"
   }
 }
