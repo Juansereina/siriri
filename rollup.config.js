@@ -10,7 +10,7 @@ const { isProductionMode } = require('./helpers')
 
 const output = () => {
   const basic =   {
-    dir: `${folders.output}${js.source}${js.main}`,
+    dir: `${folders.output}${js.source}`,
     format: 'esm',
     sourcemap: !isProductionMode,
     plugins: []
@@ -33,7 +33,7 @@ const plugins = [
 ];
 
 module.exports = {
-  input: `${folders.source}${js.source}`,
+  input: `${folders.source}${js.source}${js.main}`,
   output: output(),
   plugins
 };
