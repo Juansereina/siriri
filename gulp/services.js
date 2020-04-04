@@ -13,12 +13,15 @@ function browserSyncReload(done) {
 
 // Live reloading
 function serve(done) {
+  const port = process.env.PORT || 8080;
+
   if (isProductionMode) return done();
 
   browserSync.init({
     server: {
       baseDir: folders.output
-    }
+    },
+    port
   });
   watch(`${folders.source}/*.html`, task.html);
   watch(`${folders.source}${sassCong.source}`, task.sass);
