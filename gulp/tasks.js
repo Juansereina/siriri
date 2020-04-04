@@ -32,6 +32,10 @@ function sass() {
     .pipe(browserSync.stream());
 }
 
+function javascript() {
+  return src(`${folders.output}/js/*.js`).pipe(browserSync.stream());
+}
+
 function sw() {
   return src(`${folders.source}${js.source}${js.sw}`)
   .pipe(dest(folders.output))
@@ -41,6 +45,7 @@ function sw() {
 module.exports = {
   clean,
   html,
+  javascript,
   sass,
   sw
 }
