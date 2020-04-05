@@ -32,7 +32,6 @@ async function sendPush(subscription) {
   const endpoint = 'http://localhost:3000';
 
   try {
-    console.log("Sending Push...");
     await fetch(`${endpoint}/subscribe`, {
       method: "POST",
       body: JSON.stringify(subscription),
@@ -40,7 +39,6 @@ async function sendPush(subscription) {
         "content-type": "application/json"
       }
     });
-    console.log("Push Sent...");
   } catch (error) {
     console.error(error);
     throw error;
@@ -66,6 +64,14 @@ function askPermission() {
 
 
 export default async () => {
+  const registrations = await navigator.serviceWorker.getRegistrations();
+  const [serviceWorker] = registrations;
+  const { active: { state } } = serviceWorker;
+
+  if (state === 'activated') {
+    return;
+  }
+
   try {
     const regis = await register();
     await askPermission();
