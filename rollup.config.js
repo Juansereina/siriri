@@ -5,12 +5,12 @@ const { terser } = require('rollup-plugin-terser');
 const babel = require('rollup-plugin-babel');
 const resolve = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
-const { folders } = require('./config');
+const { folders, js } = require('./config');
 const { isProductionMode } = require('./helpers')
 
 const output = () => {
   const basic =   {
-    dir: `${folders.output}/js/index.js`,
+    dir: `${folders.output}${js.source}`,
     format: 'esm',
     sourcemap: !isProductionMode,
     plugins: []
@@ -33,7 +33,7 @@ const plugins = [
 ];
 
 module.exports = {
-  input: `${folders.source}/js/`,
+  input: `${folders.source}${js.source}${js.main}`,
   output: output(),
   plugins
 };

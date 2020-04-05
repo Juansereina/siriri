@@ -4,7 +4,7 @@
   "description": "Front",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run js-w\" \"gulp serve\"",
+    "start": "gulp serve & npm run js-w",
     "test": "npm run lint && jest --testPathPattern=spec.js",
     "build": "echo 'Building' && cross-env NODE_ENV=\"production\" gulp serve && cross-env NODE_ENV=\"production\" npm run js",
     "js": "rollup -c rollup.config.js",
@@ -33,7 +33,6 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
     "browser-sync": "^2.26.7",
-    "concurrently": "^5.1.0",
     "cross-env": "^7.0.2",
     "deepmerge": "^4.2.2",
     "eslint": "^6.8.0",
@@ -55,6 +54,7 @@
     "rollup-plugin-terser": "^5.3.0"
   },
   "dependencies": {
+    "http-server": "^0.12.1",
     "js-yaml": "^3.13.1"
   }
 }

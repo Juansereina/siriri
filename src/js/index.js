@@ -1,7 +1,7 @@
+import registerSw from './components/registerSw';
 
 const initApp = async () => {
-   const test = await import('./components/test.js');
-   console.log(test.default);
+   registerSw();
 };
 
 const shareData = {

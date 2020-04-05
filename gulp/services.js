@@ -1,7 +1,7 @@
 /*eslint-env node*/
 const browserSync = require('browser-sync').create();
 const { watch, src, dest } = require('gulp');
-const { folders, sass: sassCong } = require('../config');
+const { folders, sass: sassCong, js } = require('../config');
 const { isProductionMode } = require('../helpers');
 const task = require('./tasks');
 const inject = require('gulp-inject');
@@ -13,16 +13,21 @@ function browserSyncReload(done) {
 
 // Live reloading
 function serve(done) {
+  const port = process.env.PORT || 8080;
+
   if (isProductionMode) return done();
 
   browserSync.init({
     server: {
       baseDir: folders.output
-    }
+    },
+    port
   });
   watch(`${folders.source}/*.html`, task.html);
   watch(`${folders.source}${sassCong.source}`, task.sass);
+  watch(`${folders.source}${js.source}${js.sw}`, task.sw);
   watch(`${folders.output}/*.html`).on('change', browserSyncReload)
+  watch(`${folders.output}/js/index.js`).on('change', browserSyncReload)
 }
 
 // Inject files to target - Styles injected
