@@ -4,7 +4,8 @@
   "description": "Front",
   "main": "index.js",
   "scripts": {
-    "start": "gulp serve & npm run js-w",
+    "start": "node",
+    "dev": "gulp serve & npm run js-w",
     "test": "npm run lint && jest --testPathPattern=spec.js",
     "build": "echo 'Building' && cross-env NODE_ENV=\"production\" gulp build && cross-env NODE_ENV=\"production\" npm run js",
     "js": "rollup -c rollup.config.js",
