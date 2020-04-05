@@ -9,7 +9,10 @@
     "build": "echo 'Building' && cross-env NODE_ENV=\"production\" gulp build && cross-env NODE_ENV=\"production\" npm run js",
     "js": "rollup -c rollup.config.js",
     "js-w": "rollup -c rollup.config.js -w",
-    "lint": "eslint src"
+    "lint": "npm run eslint && npm run prettier",
+    "eslint": "eslint src",
+    "prettier": "prettier -c './**/*.{html,md,js,json}'",
+    "prettier:fix":"prettier --write './**/*.{html,md,js,json}'"
   },
   "repository": {
     "type": "git",
@@ -49,6 +52,7 @@
     "gulp-uglify": "^3.0.2",
     "jest": "^25.1.0",
     "js-yaml": "^3.13.1",
+    "prettier": "2.0.2",
     "rollup": "^2.3.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-terser": "^5.3.0"
