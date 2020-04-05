@@ -2,8 +2,9 @@ folders:
   source: src
   output: build
 sass:
-  source: /sass/**/*.scss
+  source: /sass/
   output: /css
+  main: style.scss
 js:
   main: index.js
   source: /js/

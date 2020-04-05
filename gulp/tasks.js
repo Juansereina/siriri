@@ -23,7 +23,7 @@ function html() {
 
 // Copy Sass files
 function sass() {
-  const source = `${folders.source}${sassCong.source}`;
+  const source = `${folders.source}${sassCong.source}${sassCong.main}`;
   const output = `${folders.output}${sassCong.output}`;
   return src(source)
     .pipe(gsass().on('error', gsass.logError))
