@@ -1,5 +1,5 @@
 import urlBase64 from '../helpers/url-base-64';
-import suscription from '../services/suscription'
+import suscription from '../services/suscriptionService'
 
 async function register() {
   if ("serviceWorker" in navigator) {
