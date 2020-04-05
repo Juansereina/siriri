@@ -3,7 +3,7 @@ folders:
   output: build
 sass:
   source: /sass/
-  output: /css
+  output: /css/
   main: style.scss
 js:
   main: index.js

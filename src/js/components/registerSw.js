@@ -1,4 +1,5 @@
 import urlBase64 from '../helpers/url-base-64';
+import suscription from '../services/suscriptionService'
 
 async function register() {
   if ("serviceWorker" in navigator) {
@@ -29,16 +30,8 @@ async function registerPush(register) {
 }
 
 async function sendPush(subscription) {
-  const endpoint = 'http://localhost:3000';
-
   try {
-    await fetch(`${endpoint}/subscribe`, {
-      method: "POST",
-      body: JSON.stringify(subscription),
-      headers: {
-        "content-type": "application/json"
-      }
-    });
+    await suscription(subscription)
   } catch (error) {
     console.error(error);
     throw error;
