@@ -1,14 +1,12 @@
-import loggingService from '../services/loggingService';
+import loggingController from '../controllers/loggingController';
 
-export default async () => {
-  const form = document.querySelector('.logging');
-  const submit = form.querySelector('.logging__submit');
-  const name = form.querySelector('.logging__name').value;
+export default (node) => {
+    const submit = node.querySelector('.logging__submit');
+    const name = node.querySelector('.logging__name');
 
-  submit.addEventListener('click', async (e) => {
-    e.preventDefault();
-    const { createGuest: result } = await loggingService(name);
+    submit.addEventListener('click', (e) => {
+      e.preventDefault();
 
-    console.log(result.id);
-  });
+      loggingController(name.value);
+    });
  }
