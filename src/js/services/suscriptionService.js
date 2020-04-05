@@ -7,4 +7,4 @@ export default async (subscription) => {
     console.error(error);
     throw error;
   }
-}
+};
