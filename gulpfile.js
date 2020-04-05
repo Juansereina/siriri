@@ -34,3 +34,8 @@ exports.serve = series(
   parallel(task.html, task.javascript, task.sass, task.sw),
   serve
 );
+
+exports.build = series(
+  task.clean,
+  parallel(task.html, task.javascript, task.sass, task.sw)
+);
