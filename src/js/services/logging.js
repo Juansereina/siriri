@@ -1,8 +1,8 @@
 import api from './api';
 
-export default async (subscription) => {
+export default async (body) => {
   try {
-    await api('subscribe', subscription, 'POST');
+    await api('subscribe', body);
   } catch (error) {
     console.error(error);
     throw error;
