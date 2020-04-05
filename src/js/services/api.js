@@ -14,3 +14,21 @@ export default async (path, body, method = 'GET') => {
     throw error;
   }
 }
+
+export const apiQuery = async (query, variables) => {
+  try {
+    return await fetch(`${config.endpoint}/api`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        query,
+        variables,
+      })
+    })
+  } catch (error) {
+    console.error(error);
+  }
+}
