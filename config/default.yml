@@ -9,3 +9,4 @@ js:
   main: index.js
   source: /js/
   sw: sw.js
+endpoint: http://localhost:3000

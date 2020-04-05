@@ -1,4 +1,5 @@
 /*eslint-env node*/
+
 module.exports = {
-  endpoint: 'http://localhost:3000',
+  endpoint: '__prodEndpoint__',
 };

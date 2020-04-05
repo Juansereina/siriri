@@ -1,14 +1,18 @@
 /*eslint-env node*/
 // rollup.config.js
+require('dotenv').config();
 const json = require('@rollup/plugin-json');
 const { terser } = require('rollup-plugin-terser');
 const babel = require('rollup-plugin-babel');
 const resolve = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
 const alias = require('@rollup/plugin-alias');
+import replace from '@rollup/plugin-replace';
 const path = require('path');
-const { folders, js } = require('./config');
+const { folders, js, endpoint } = require('./config');
 const { isProductionMode } = require('./helpers');
+
+const serviceEndpoint = process.env.ENDPOINT || endpoint;
 
 const output = () => {
   const basic = {
@@ -35,6 +39,7 @@ const plugins = [
   alias({
     entries: [{ find: 'default', replacement: path.resolve(__dirname, 'config/env') }],
   }),
+  replace({ __prodEndpoint__: serviceEndpoint }),
 ];
 
 module.exports = {

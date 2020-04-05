@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  web_app: # services name
+    build: . # Build the current dir
+    command: npm run dev
+    container_name: web_app
+    ports:
+      - ${PORT}:8080 # Expose from my machine the port to the container port
+    volumes:
+      - .:/usr/siriri-19 # Use volumes to override the files in the container
+      - /usr/siriri-19/node_modules  # Don't override the node_module in the container
