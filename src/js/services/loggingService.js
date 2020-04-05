@@ -9,13 +9,13 @@ const query = `mutation CreateGuest($guestInput: GuestInput!) {
 export default async (name) => {
   const guestInput = {
     name,
-    state: "Ok"
-  }
+    state: 'Ok',
+  };
   try {
     const response = await apiQuery(query, { guestInput });
     const { data, errors } = await response.json();
 
-    if (Array.isArray(errors) && errors.length > 0 ) {
+    if (Array.isArray(errors) && errors.length > 0) {
       throw new Error(errors[0].message);
     }
 
@@ -24,4 +24,4 @@ export default async (name) => {
     console.error(error);
     throw error;
   }
-}
+};

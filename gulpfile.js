@@ -17,25 +17,18 @@ function serve() {
 
   browserSync.init({
     server: {
-      baseDir: folders.output
+      baseDir: folders.output,
     },
-    port
+    port,
   });
   watch(`${folders.source}/**/*.html`, task.html);
   watch(`${folders.source}/**/*.scss`, task.sass);
   watch(`${folders.source}/**/*.js`, task.sw);
-  watch(`${folders.output}/**/*.html`).on('change', browserSyncReload)
-  watch(`${folders.output}${js.source}${js.main}`).on('change', browserSyncReload)
-  watch(`${folders.output}${sass.output}style.css`).on('change', browserSyncReload)
+  watch(`${folders.output}/**/*.html`).on('change', browserSyncReload);
+  watch(`${folders.output}${js.source}${js.main}`).on('change', browserSyncReload);
+  watch(`${folders.output}${sass.output}style.css`).on('change', browserSyncReload);
 }
 
-exports.serve = series(
-  task.clean,
-  parallel(task.html, task.javascript, task.sass, task.sw),
-  serve
-);
+exports.serve = series(task.clean, parallel(task.html, task.javascript, task.sass, task.sw), serve);
 
-exports.build = series(
-  task.clean,
-  parallel(task.html, task.javascript, task.sass, task.sw)
-);
+exports.build = series(task.clean, parallel(task.html, task.javascript, task.sass, task.sw));

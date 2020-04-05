@@ -9,7 +9,7 @@ const { isProductionMode } = require('../helpers');
 const { browserSync } = require('./services');
 
 // Clean files
- function clean() {
+function clean() {
   return src(`${folders.output}`, { read: false, allowEmpty: true }).pipe(gclean());
 }
 
@@ -37,9 +37,7 @@ function javascript() {
 }
 
 function sw() {
-  return src(`${folders.source}${js.source}${js.sw}`)
-  .pipe(dest(folders.output))
-  .pipe(browserSync.stream());
+  return src(`${folders.source}${js.source}${js.sw}`).pipe(dest(folders.output)).pipe(browserSync.stream());
 }
 
 module.exports = {
@@ -47,5 +45,5 @@ module.exports = {
   html,
   javascript,
   sass,
-  sw
-}
+  sw,
+};

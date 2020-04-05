@@ -1,6 +1,6 @@
 import { getData } from '../services/storage';
 
-const createUser = ({name, state}) => `
+const createUser = ({ name, state }) => `
 <li class="user">
   <div class="user__color-state"></div>
   <span class="user__name">name: <b>${name}</b></span>
@@ -20,4 +20,4 @@ export default (node) => {
       usersList.innerHTML += item;
     }
   }
-}
+};

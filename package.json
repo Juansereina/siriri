@@ -12,7 +12,7 @@
     "lint": "npm run eslint && npm run prettier",
     "eslint": "eslint src",
     "prettier": "prettier -c './**/*.{html,md,js,json}'",
-    "prettier:fix":"prettier --write './**/*.{html,md,js,json}'"
+    "prettier:fix": "prettier --write './**/*.{html,md,js,json}'"
   },
   "repository": {
     "type": "git",

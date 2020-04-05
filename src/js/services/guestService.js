@@ -16,7 +16,7 @@ export const getGuest = async () => {
     console.error(error);
     throw error;
   }
-}
+};
 
 export const getAll = async () => {
   const query = `{
@@ -34,4 +34,4 @@ export const getAll = async () => {
     console.error(error);
     throw error;
   }
-}
+};
