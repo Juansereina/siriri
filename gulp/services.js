@@ -27,6 +27,7 @@ function serve(done) {
   watch(`${folders.source}${sassCong.source}`, task.sass);
   watch(`${folders.source}${js.source}${js.sw}`, task.sw);
   watch(`${folders.output}/*.html`).on('change', browserSyncReload)
+  watch(`${folders.output}/js/index.js`).on('change', browserSyncReload)
 }
 
 // Inject files to target - Styles injected
