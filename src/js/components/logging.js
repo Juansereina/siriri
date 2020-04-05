@@ -1,17 +1,13 @@
 import loggingController from '../controllers/loggingController';
-import { getData } from '../services/storage';
 
-export default async () => {
+export default () => {
   const form = document.querySelector('.logging');
   const submit = form.querySelector('.logging__submit');
   const name = form.querySelector('.logging__name');
 
-  submit.addEventListener('click', async (e) => {
+  submit.addEventListener('click', (e) => {
     e.preventDefault();
-    await loggingController(name.value);
-    const guest = getData('currentGuest');
-    const all = getData('allGuests');
 
-    console.log(guest, all);
+    loggingController(name.value);
   });
  }

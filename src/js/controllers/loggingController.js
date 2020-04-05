@@ -8,4 +8,6 @@ export default async (name) => {
 
   saveData('currentGuest', createGuest);
   saveData('allGuests', getGuests);
+
+  window.location.href = "/room.html";
 }
