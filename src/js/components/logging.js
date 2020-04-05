@@ -1,13 +1,12 @@
 import loggingController from '../controllers/loggingController';
 
-export default () => {
-  const form = document.querySelector('.logging');
-  const submit = form.querySelector('.logging__submit');
-  const name = form.querySelector('.logging__name');
+export default (node) => {
+    const submit = node.querySelector('.logging__submit');
+    const name = node.querySelector('.logging__name');
 
-  submit.addEventListener('click', (e) => {
-    e.preventDefault();
+    submit.addEventListener('click', (e) => {
+      e.preventDefault();
 
-    loggingController(name.value);
-  });
+      loggingController(name.value);
+    });
  }
