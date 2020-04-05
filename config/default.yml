@@ -1,0 +1,6 @@
+folders:
+  source: src
+  output: build
+sass:
+  source: /sass/**/*.scss
+  output: /css
