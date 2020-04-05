@@ -39,7 +39,7 @@ const plugins = [
   alias({
     entries: [{ find: 'default', replacement: path.resolve(__dirname, 'config/env') }],
   }),
-  replace({ __prodEndpoint__: serviceEndpoint })
+  replace({ __prodEndpoint__: serviceEndpoint }),
 ];
 
 module.exports = {
