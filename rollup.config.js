@@ -5,6 +5,8 @@ const { terser } = require('rollup-plugin-terser');
 const babel = require('rollup-plugin-babel');
 const resolve = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
+const alias = require('@rollup/plugin-alias');
+const path = require('path')
 const { folders, js } = require('./config');
 const { isProductionMode } = require('./helpers')
 
@@ -27,9 +29,14 @@ const output = () => {
 
 const plugins = [
   json(),
-  resolve(),
+  resolve({ preferBuiltins: false }),
   commonjs(),
   babel({ runtimeHelpers: true }),
+  alias({
+    entries: [
+      { find: 'default', replacement: path.resolve(__dirname, 'config/env') }
+    ]
+  })
 ];
 
 module.exports = {
