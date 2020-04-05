@@ -33,7 +33,7 @@ function sass() {
 }
 
 function javascript() {
-  return src(`${folders.output}/js/*.js`).pipe(browserSync.stream());
+  return src(`${folders.output}/**/*.js`).pipe(browserSync.stream());
 }
 
 function sw() {
