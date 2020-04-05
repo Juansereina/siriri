@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
   }
 
   const roomNode = document.querySelector('.room');
-  if(roomNode) {
+  if (roomNode) {
     room(roomNode);
   }
 });
