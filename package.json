@@ -13,7 +13,9 @@
     "lint": "npm run eslint && npm run prettier",
     "eslint": "eslint src",
     "prettier": "prettier -c './**/*.{html,md,js,json}'",
-    "prettier:fix": "prettier --write './**/*.{html,md,js,json}'"
+    "prettier:fix": "prettier --write './**/*.{html,md,js,json}'",
+    "lighthouse": "npm run pre-lighthouse && node ./helpers/lighthouse",
+    "pre-lighthouse": "rm -f lighthouse-report.html"
   },
   "repository": {
     "type": "git",
