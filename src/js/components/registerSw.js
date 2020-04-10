@@ -56,9 +56,7 @@ function askPermission() {
 export default async () => {
   const registrations = await navigator.serviceWorker.getRegistrations();
   const [serviceWorker] = registrations;
-  const {
-    active: { state },
-  } = serviceWorker;
+  const { state } = serviceWorker ? serviceWorker.active : {};
 
   if (state === 'activated') {
     return;
