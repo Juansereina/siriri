@@ -13,7 +13,9 @@
     "lint": "npm run eslint && npm run prettier",
     "eslint": "eslint src",
     "prettier": "prettier -c './**/*.{html,md,js,json}'",
-    "prettier:fix": "prettier --write './**/*.{html,md,js,json}'"
+    "prettier:fix": "prettier --write './**/*.{html,md,js,json}'",
+    "lighthouse": "npm run pre-lighthouse && node ./helpers/lighthouse",
+    "pre-lighthouse": "rm -f lighthouse-report.html"
   },
   "repository": {
     "type": "git",
@@ -39,6 +41,7 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
     "browser-sync": "^2.26.7",
+    "chrome-launcher": "^0.13.1",
     "cross-env": "^7.0.2",
     "deepmerge": "^4.2.2",
     "dotenv": "^8.2.0",
@@ -55,6 +58,8 @@
     "gulp-uglify": "^3.0.2",
     "jest": "^25.1.0",
     "js-yaml": "^3.13.1",
+    "lighthouse": "^5.6.0",
+    "lighthouse-logger": "^1.2.0",
     "prettier": "2.0.2",
     "rollup": "^2.3.0",
     "rollup-plugin-babel": "^4.4.0",

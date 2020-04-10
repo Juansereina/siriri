@@ -10,3 +10,19 @@ js:
   source: /js/
   sw: sw.js
 endpoint: http://localhost:3000
+lighthouse:
+  report: lighthouse-report
+  opts:
+    output: html
+    chromeFlags:
+      - --headless
+    logLevel: info
+    view: true
+  config:
+    extends: lighthouse:default
+    settings:
+      onlyAudits:
+        - 'first-meaningful-paint'
+        - 'speed-index'
+        - 'first-cpu-idle'
+        - 'interactive'

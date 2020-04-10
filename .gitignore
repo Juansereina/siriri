@@ -3,3 +3,4 @@ build
 public/*
 bundlers
 .env
+lighthouse-report.html
