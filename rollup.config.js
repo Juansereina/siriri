@@ -1,6 +1,11 @@
 /*eslint-env node*/
 // rollup.config.js
-require('dotenv').config();
+
+const isDocker = process.env.DOCKER === 'true';
+
+// Loads the env vars outside of a docker container
+if (!isDocker) require('dotenv').config();
+
 const json = require('@rollup/plugin-json');
 const { terser } = require('rollup-plugin-terser');
 const babel = require('rollup-plugin-babel');
