@@ -12,10 +12,10 @@ const { isDocker } = require('./');
 if (!isDocker) require('dotenv').config();
 
 function launchChromeAndRunLighthouse(url, opts, config = null) {
-  return chromeLauncher.launch({chromeFlags: opts.chromeFlags}).then(chrome => {
+  return chromeLauncher.launch({ chromeFlags: opts.chromeFlags }).then((chrome) => {
     opts.port = chrome.port;
-    return lighthouse(url, opts, config).then(results => {
-      return chrome.kill().then(() => results)
+    return lighthouse(url, opts, config).then((results) => {
+      return chrome.kill().then(() => results);
     });
   });
 }
@@ -26,14 +26,14 @@ const endpoint = host ? `${host}:${port}` : lhEndpoint;
 
 const writeReport = (html) => {
   fs.writeFile(`${lh.report}.html`, html, (error) => {
-    if(error) return console.error(error);
+    if (error) return console.error(error);
   });
-}
+};
 
 // Usage:
-launchChromeAndRunLighthouse(endpoint, lh.opts, lh.config).then(report => {
-  const html = ReportGenerator.generateReport(report.lhr, 'html')
+launchChromeAndRunLighthouse(endpoint, lh.opts, lh.config).then((report) => {
+  const html = ReportGenerator.generateReport(report.lhr, 'html');
   log.setLevel(lh.opts.logLevel);
-  writeReport(html)
+  writeReport(html);
   console.log('Report is done!');
 });

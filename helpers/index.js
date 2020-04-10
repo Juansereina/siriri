@@ -5,5 +5,5 @@ const isDocker = process.env.DOCKER === 'true';
 
 module.exports = {
   isProductionMode,
-  isDocker
+  isDocker,
 };

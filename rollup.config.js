@@ -16,7 +16,6 @@ import replace from '@rollup/plugin-replace';
 const path = require('path');
 const { folders, js, endpoint } = require('./config');
 
-
 const serviceEndpoint = process.env.ENDPOINT || endpoint;
 
 const output = () => {
