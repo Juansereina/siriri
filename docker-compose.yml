@@ -10,3 +10,8 @@ services:
     volumes:
       - .:/usr/siriri-19 # Use volumes to override the files in the container
       - /usr/siriri-19/node_modules  # Don't override the node_module in the container
+    networks:
+      - siriri-nest-19_api
+networks: # Looks for an external network
+  siriri-nest-19_api:
+    external: true
