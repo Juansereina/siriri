@@ -1,7 +1,7 @@
 /*eslint-env node*/
 // rollup.config.js
 
-const isDocker = process.env.DOCKER === 'true';
+const { isProductionMode, isDocker } = require('./helpers');
 
 // Loads the env vars outside of a docker container
 if (!isDocker) require('dotenv').config();
@@ -15,7 +15,7 @@ const alias = require('@rollup/plugin-alias');
 import replace from '@rollup/plugin-replace';
 const path = require('path');
 const { folders, js, endpoint } = require('./config');
-const { isProductionMode } = require('./helpers');
+
 
 const serviceEndpoint = process.env.ENDPOINT || endpoint;
 
