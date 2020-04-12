@@ -29,6 +29,6 @@ function serve() {
   watch(`${folders.output}${sass.output}style.css`).on('change', browserSyncReload);
 }
 
-exports.serve = series(task.clean, parallel(task.html, task.javascript, task.sass, task.sw), serve);
+exports.serve = series(task.clean, parallel(task.html, task.javascript, task.sass, task.sw, task.manifest), serve);
 
-exports.build = series(task.clean, parallel(task.html, task.javascript, task.sass, task.sw));
+exports.build = series(task.clean, parallel(task.html, task.javascript, task.sass, task.sw, task.manifest));

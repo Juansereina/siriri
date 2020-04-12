@@ -40,10 +40,17 @@ function sw() {
   return src(`${folders.source}${js.source}${js.sw}`).pipe(dest(folders.output)).pipe(browserSync.stream());
 }
 
+function manifest() {
+  return src(`${folders.source}/manifest.json`)
+  .pipe(dest(folders.output))
+  .pipe(browserSync.stream());
+}
+
 module.exports = {
   clean,
   html,
   javascript,
   sass,
   sw,
+  manifest,
 };
