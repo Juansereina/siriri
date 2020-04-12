@@ -4,3 +4,4 @@ public/*
 bundlers
 .env
 lighthouse-report.html
+.DS_Store
