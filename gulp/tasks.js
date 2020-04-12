@@ -41,9 +41,7 @@ function sw() {
 }
 
 function manifest() {
-  return src(`${folders.source}/manifest.json`)
-  .pipe(dest(folders.output))
-  .pipe(browserSync.stream());
+  return src(`${folders.source}/manifest.json`).pipe(dest(folders.output)).pipe(browserSync.stream());
 }
 
 module.exports = {
